@@ -1,0 +1,9 @@
+{
+  "name": "Aether Raid",
+  "short_name": "Aether Raid",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#05060d",
+  "theme_color": "#05060d"
+}

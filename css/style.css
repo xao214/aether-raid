@@ -1,0 +1,98 @@
+
+:root {
+  --bg: #05060d;
+  --cyan: #5ef2ff;
+  --mag: #ff4fd8;
+  --gold: #ffd166;
+  --text: #e8f6ff;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  height: 100%;
+  height: 100dvh;
+  background: #05060d;
+  color: var(--text);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  overflow: hidden;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+  overscroll-behavior: none;
+}
+#wrap {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+#stage {
+  position: relative;
+  width: min(100vw, calc((100dvh - 28px) * 420 / 640));
+  height: min(100dvh - 28px, calc(100vw * 640 / 420));
+  max-width: 100%;
+  box-shadow: 0 0 0 2px #1c2340, 0 0 40px #5ef2ff33;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+}
+canvas { display: block; width: 100%; height: 100%; image-rendering: pixelated; touch-action: none; }
+#hud {
+  position: absolute; inset: 0; pointer-events: none;
+  padding: calc(8px + env(safe-area-inset-top)) 12px 10px;
+  display: flex; justify-content: space-between;
+  font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+  text-shadow: 0 0 8px #5ef2ffaa;
+}
+#hint {
+  display: none;
+  font-size: 11px; opacity: 0.7; letter-spacing: 0.1em;
+  text-transform: uppercase; text-align: center; padding: 0 12px;
+}
+@media (min-width: 700px) {
+  #hint { display: block; position: absolute; bottom: 8px; }
+}
+#touch {
+  position: absolute; inset: 0;
+  pointer-events: none;
+}
+#stick {
+  position: absolute;
+  left: 16px; bottom: calc(18px + env(safe-area-inset-bottom));
+  width: 112px; height: 112px;
+  border: 2px solid #5ef2ff66;
+  border-radius: 50%;
+  background: #5ef2ff14;
+  pointer-events: auto;
+  touch-action: none;
+}
+#knob {
+  position: absolute; left: 50%; top: 50%;
+  width: 46px; height: 46px; margin: -23px 0 0 -23px;
+  border-radius: 50%;
+  background: #5ef2ffcc;
+  box-shadow: 0 0 12px #5ef2ffaa;
+  pointer-events: none;
+}
+#fireBtn {
+  position: absolute;
+  right: 18px; bottom: calc(22px + env(safe-area-inset-bottom));
+  width: 96px; height: 96px;
+  border-radius: 50%;
+  border: 2px solid #ff4fd8aa;
+  background: #ff4fd833;
+  color: #ffe8fb;
+  font: 700 14px/1 "Trebuchet MS", sans-serif;
+  letter-spacing: 0.12em;
+  pointer-events: auto;
+  touch-action: none;
+}
+#fireBtn:active, #fireBtn.held { background: #ff4fd866; }
+#pauseBtn, #muteBtn {
+  position: absolute; top: calc(28px + env(safe-area-inset-top));
+  width: 36px; height: 36px; border-radius: 8px;
+  border: 1px solid #5ef2ff55; background: #05060d99;
+  color: #e8f6ff; font-size: 14px;
+  pointer-events: auto;
+}
+#pauseBtn { right: 52px; }
+#muteBtn { right: 12px; }
